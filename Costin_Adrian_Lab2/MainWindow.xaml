@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Costin_Adrian_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Loaded="frmMain_Loaded">
     <Grid>
         <Label x:Name="lblTitle" Content="Doughnuts - Bake &amp; Sale" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="40" Width="309" FontSize="24" FontWeight="Bold"/>
         <GroupBox x:Name="gbRaised" Header="Raised" FontWeight="Bold" Margin="179,102,429,222">
@@ -29,7 +29,7 @@
         <GroupBox x:Name="gbSale" Header="Current Sale" Margin="113,217,131,10" FontWeight="Bold">
             <Canvas Margin="0,0,0,-13">
                 <Label x:Name="lblQuantity" Content="Quantity" Canvas.Left="10" Canvas.Top="10" FontWeight="Normal"/>
-                <TextBox x:Name="txtQuantity" Canvas.Left="66" Canvas.Top="14" Text="0" TextWrapping="Wrap" Width="42" FontWeight="Normal" Height="22"/>
+                <TextBox x:Name="txtQuantity" Canvas.Left="66" Canvas.Top="14" Text="0" TextWrapping="Wrap" Width="42" FontWeight="Normal" Height="22" KeyUp="txtQuantity_KeyUp"/>
                 <Label x:Name="lblType" Content="Type" Canvas.Left="136" Canvas.Top="11" FontWeight="Normal"/>
                 <ComboBox x:Name="cmbType" Canvas.Left="171" Canvas.Top="13" Width="120" Height="22"/>
                 <Label x:Name="lblPrice" Content="Price" Canvas.Left="316" Canvas.Top="12" FontWeight="Normal"/>
@@ -42,19 +42,19 @@
                 <Button x:Name="btnCheckOut" Content="Check Out" Canvas.Left="433" Canvas.Top="133" Width="77" Height="23"/>
             </Canvas>
         </GroupBox>
-        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
-Width="131">
+        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="MenuItem_Click" />
             </MenuItem>
             <MenuItem Header="_Doughnuts">
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                        <MenuItem x:Name="glazedMenuItem" Header="Glazed" Click="glazedMenuItem_Click"/>
+                        <MenuItem x:Name="sugarMenuItem" Header="Sugar" Click="sugarMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="mnuStop_Click" />
             </MenuItem>
         </Menu>
 
